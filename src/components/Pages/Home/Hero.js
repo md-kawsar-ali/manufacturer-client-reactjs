@@ -13,7 +13,7 @@ const Hero = () => {
 
                     <div className='lg:w-3/5 lg:text-left md:w-2/3 text-center'>
                         <h1 className="lg:text-5xl md:text-3xl text-2xl font-bold leading-tight">Accessories Manufacturer Japan based Company</h1>
-                        <p className="py-6 font-medium text-base lg:text-xl lg:w-10/12">We are Manufacturing Auto Parts and Electronics since 1995. Autima is the brand that you can trust!</p>
+                        <p className="py-6 font-medium text-base lg:text-xl lg:w-10/12">We are manufacturing auto parts and electronics since 1995. Autima is the brand that you can trust!</p>
                         <button className="btn btn-secondary text-white font-bold px-6">Get Started</button>
                     </div>
                 </div>
