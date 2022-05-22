@@ -1,15 +1,21 @@
 import React from 'react';
-const Img = `https://api.lorem.space/image/fashion?w=1000&h=800`;
+import heroImg from '../../../images/hero-img.png';
 
 const Hero = () => {
+
     return (
-        <div className="hero min-h-screen" style={{ backgroundImage: `url(${Img})` }}>
-            <div className="hero-overlay bg-opacity-70"></div>
-            <div className="hero-content text-center text-neutral-content container mx-auto lg:px-16">
-                <div className="max-w-md">
-                    <h1 className="mb-5 text-5xl font-bold text-slate-100">Hello there</h1>
-                    <p className="mb-5 text-slate-200">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    <button className="btn btn-primary bg-slate-100 border-slate-100">Get Started</button>
+        <div className="hero bg-slate-100" style={{ minHeight: 'calc(100vh - 80px)' }}>
+            <div className="container mx-auto lg:px-10">
+                <div className="hero-content flex-col gap-x-8 lg:flex-row-reverse">
+                    <div className="lg:w-2/5 md:w-2/3 w-2/3 mx-auto">
+                        <img src={heroImg} className="w-full" alt="" />
+                    </div>
+
+                    <div className='lg:w-3/5 lg:text-left md:w-2/3 text-center'>
+                        <h1 className="lg:text-5xl md:text-3xl text-2xl font-bold leading-tight">Accessories Manufacturer Japan based Company</h1>
+                        <p className="py-6 font-medium text-base lg:text-xl lg:w-10/12">We are Manufacturing Auto Parts and Electronics since 1995. Autima is the brand that you can trust!</p>
+                        <button className="btn btn-secondary text-white font-bold px-6">Get Started</button>
+                    </div>
                 </div>
             </div>
         </div>

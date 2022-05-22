@@ -13,7 +13,7 @@ const Header = () => {
 
     return (
         <header className='bg-base-100 z-[9999]'>
-            <div className='container mx-auto lg:px-16 py-2'>
+            <div className='container mx-auto lg:px-10 py-2'>
                 <div className="navbar">
                     <div className="navbar-start">
                         <div className="dropdown">
