@@ -12,6 +12,7 @@ import MyOrders from './components/Pages/Dashboard/MyOrders';
 import AddReview from './components/Pages/Dashboard/AddReview';
 import MyProfile from './components/Pages/Dashboard/MyProfile';
 import RequireAuth from './components/Pages/Authentication/RequireAuth';
+import AllProduct from './components/Pages/AllProduct/AllProduct';
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/products" element={
+          <RequireAuth>
+            <AllProduct />
+          </RequireAuth>
+        } />
 
         <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<MyOrders />} />
