@@ -7,6 +7,11 @@ import { Toaster } from 'react-hot-toast';
 import NotFound from './components/Pages/NotFound/NotFound';
 import Register from './components/Pages/Authentication/Register';
 import Login from './components/Pages/Authentication/Login';
+import Dashboard from './components/Pages/Dashboard/Dashboard';
+import MyOrders from './components/Pages/Dashboard/MyOrders';
+import AddReview from './components/Pages/Dashboard/AddReview';
+import MyProfile from './components/Pages/Dashboard/MyProfile';
+import RequireAuth from './components/Pages/Authentication/RequireAuth';
 
 function App() {
   return (
@@ -17,6 +22,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
+        <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
+          <Route index element={<MyOrders />} />
+          <Route path='add-review' element={<AddReview />} />
+          <Route path='my-profile' element={<MyProfile />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
 

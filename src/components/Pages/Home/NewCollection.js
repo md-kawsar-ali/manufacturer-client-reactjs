@@ -1,35 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Loader from '../../shared/Loader';
 import SingleNewProduct from './SingleNewProduct';
 import Title from './Title';
 
 const NewCollection = () => {
+    const [loading, setLoading] = useState(true);
+    const [collection, setCollection] = useState([]);
 
-    const collection = [
-        {
-            '_id': 1,
-            'img': 'https://htmldemo.net/autima/autima/assets/img/product/product10.jpg',
-            'name': 'Accusantium Heavy Tier',
-            'price': 320,
-            'quantity': 1020,
-            'minOrder': 12,
-        },
-        {
-            '_id': 2,
-            'img': 'https://htmldemo.net/autima/autima/assets/img/product/product4.jpg',
-            'name': 'Alumunium Tier Disc D33',
-            'price': 420,
-            'quantity': 1050,
-            'minOrder': 12,
-        },
-        {
-            '_id': 3,
-            'img': 'https://htmldemo.net/autima/autima/assets/img/product/product9.jpg',
-            'name': 'Silver White Outter Pro',
-            'price': 350,
-            'quantity': 720,
-            'minOrder': 12,
-        }
-    ]
+    useEffect(() => {
+        fetch('https://autima-pro-manufacturer.herokuapp.com/product?size=3')
+            .then(res => res.json())
+            .then(data => {
+                setCollection(data);
+                setLoading(false);
+            })
+    }, []);
+
+    if (loading) {
+        return <Loader />;
+    }
 
     return (
         <section className='py-24'>

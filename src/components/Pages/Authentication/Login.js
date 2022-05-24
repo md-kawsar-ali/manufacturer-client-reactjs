@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from './../../../firebaseConfig';
 import toast from 'react-hot-toast';
@@ -8,6 +8,8 @@ import Loader from '../../shared/Loader';
 
 const Login = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [
         signInWithEmailAndPassword,
@@ -23,7 +25,7 @@ const Login = () => {
                 duration: 3000
             });
 
-            navigate('/');
+            navigate(from, { replace: true });
         }
 
         else if (firebaseError || gError) {
@@ -41,7 +43,7 @@ const Login = () => {
                 duration: 3000
             });
         }
-    }, [user, firebaseError, navigate, gUser, gError]);
+    }, [user, firebaseError, navigate, gUser, gError, from]);
 
     const onSubmit = async data => {
         await signInWithEmailAndPassword(data.email, data.password);

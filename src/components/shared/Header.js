@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.webp';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../firebaseConfig';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+
     const navigation = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
@@ -36,7 +40,17 @@ const Header = () => {
                     </div>
 
                     <div className="navbar-end">
-                        <Link to="/login" className="btn text-white px-8">Login</Link>
+                        {
+                            user ?
+                                <Link to="/dashboard" className="btn text-white px-8 hidden lg:inline-flex">Dashboard</Link>
+                                :
+                                <Link to="/login" className="btn text-white px-8">Login</Link>
+                        }
+                        {
+                            user && <label htmlFor="sidebar" className="ml-2 btn btn-ghost lg:hidden">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                            </label>
+                        }
                     </div>
                 </div>
             </div>
