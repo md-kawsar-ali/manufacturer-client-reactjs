@@ -9,7 +9,7 @@ import Loader from '../../shared/Loader';
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/dashboard';
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [
         signInWithEmailAndPassword,
@@ -25,10 +25,23 @@ const Login = () => {
                 duration: 3000
             });
 
-            navigate(from, { replace: true });
-        }
+            const email = user?.user?.email || gUser?.user?.email;
 
-        else if (firebaseError || gError) {
+            fetch(`http://localhost:5000/token/${email}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ user: email })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    localStorage.setItem('accessToken', data.accessToken);
+                    navigate(from, { replace: true });
+                })
+                .catch(err => console.error(err));
+
+        } else if (firebaseError || gError) {
             let msg;
             if (firebaseError.message.includes('not-found')) {
                 msg = 'User Not Found!';

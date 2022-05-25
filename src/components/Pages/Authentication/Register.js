@@ -24,7 +24,22 @@ const Register = () => {
                 duration: 3000
             });
 
-            navigate('/');
+            const email = user?.user?.email;
+
+            fetch(`http://localhost:5000/token/${email}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ user: email })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    localStorage.setItem('accessToken', data.accessToken);
+                    navigate('/dashboard', { replace: true });
+                })
+                .catch(err => console.error(err));
+
         }
         else if (firebaseError) {
             let msg;

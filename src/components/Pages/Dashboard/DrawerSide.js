@@ -11,7 +11,10 @@ const DrawerSide = () => {
                 <li><Link to='/dashboard'>My Orders</Link></li>
                 <li><Link to='/dashboard/add-review'>Add Review</Link></li>
                 <li><Link to='/dashboard/my-profile'>My Profile</Link></li>
-                <li><button className="font-medium" onClick={() => signOut(auth)}>Log Out</button></li>
+                <li><button className="font-medium" onClick={() => {
+                    signOut(auth);
+                    localStorage.removeItem('accessToken');
+                }}>Log Out</button></li>
             </ul>
         </div>
     );
