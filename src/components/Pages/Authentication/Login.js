@@ -27,7 +27,7 @@ const Login = () => {
 
             const email = user?.user?.email || gUser?.user?.email;
 
-            fetch(`http://localhost:5000/token/${email}`, {
+            fetch(`https://autima-pro-manufacturer.herokuapp.com/token/${email}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

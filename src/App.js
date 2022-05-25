@@ -13,6 +13,8 @@ import AddReview from './components/Pages/Dashboard/AddReview';
 import MyProfile from './components/Pages/Dashboard/MyProfile';
 import RequireAuth from './components/Pages/Authentication/RequireAuth';
 import AllProduct from './components/Pages/AllProduct/AllProduct';
+import Users from './components/Pages/Dashboard/Users';
+import RequireAdmin from './components/Pages/Authentication/RequireAdmin';
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
           <Route index element={<MyOrders />} />
           <Route path='add-review' element={<AddReview />} />
           <Route path='my-profile' element={<MyProfile />} />
+          <Route path='users' element={<RequireAdmin><Users /></RequireAdmin>} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
