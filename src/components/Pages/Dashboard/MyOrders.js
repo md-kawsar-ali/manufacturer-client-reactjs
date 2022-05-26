@@ -5,6 +5,7 @@ import auth from './../../../firebaseConfig';
 import Loader from './../../shared/Loader';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { Link } from 'react-router-dom';
 
 const MyOrders = () => {
     const [user, loading] = useAuthState(auth);
@@ -78,7 +79,7 @@ const MyOrders = () => {
                             orders?.map((order, index) => <tr key={order._id}>
                                 <th>{index + 1}</th>
                                 <td>{order.productName}</td>
-                                <td>{order.TrxId ? order.TrxId : 'Not Paid'}</td>
+                                <td>{order.transactionId ? order.transactionId : 'Not Paid'}</td>
                                 <td>{order.quantity} pcs</td>
                                 <td>${order.price}</td>
                                 <td>{
@@ -86,7 +87,9 @@ const MyOrders = () => {
                                         <span className="font-medium text-green-700 bg-green-200 py-1 px-3 inline-block rounded-lg">Paid</span>
                                         :
                                         <>
-                                            <button onClick={() => cancelOrder(order._id)} className="btn btn-sm text-white btn-error mr-1">Cancel</button> <button className="btn btn-sm text-white btn-success">Pay Now</button>
+                                            <button onClick={() => cancelOrder(order._id)} className="btn btn-sm text-white btn-error mr-1">Cancel</button>
+
+                                            <Link to={`/dashboard/checkout/${order._id}`} className="btn btn-sm text-white btn-success">Pay Now</Link>
                                         </>
                                 }</td>
                             </tr>)

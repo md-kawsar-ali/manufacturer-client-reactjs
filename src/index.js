@@ -5,15 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
 const queryClient = new QueryClient();
+const stripePromise = loadStripe('pk_test_51L3l4bJd7KN1TpXhMtASMUShbh7mVzCAXqoxrr1jIpSHwp574QvJX0zCAQPFS5UQUtwyC1qsHYEBeZFI3nbV5p7Q004TSSOLMU');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <App />
+        <Elements stripe={stripePromise}>
+          <App />
+        </ Elements>
       </BrowserRouter>
     </QueryClientProvider>
   </React.StrictMode>

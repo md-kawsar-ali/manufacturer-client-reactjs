@@ -16,6 +16,7 @@ import AllProduct from './components/Pages/AllProduct/AllProduct';
 import Users from './components/Pages/Dashboard/Users';
 import RequireAdmin from './components/Pages/Authentication/RequireAdmin';
 import Product from './components/Pages/Product/Product';
+import Checkout from './components/Pages/Dashboard/Checkout';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route index element={<MyOrders />} />
           <Route path='add-review' element={<AddReview />} />
           <Route path='my-profile' element={<MyProfile />} />
+          <Route path='checkout/:id' element={<Checkout />} />
           <Route path='users' element={<RequireAdmin><Users /></RequireAdmin>} />
         </Route>
         <Route path="*" element={<NotFound />} />

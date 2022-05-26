@@ -1,0 +1,99 @@
+[debug] [2022-05-26T16:28:42.639Z] ----------------------------------------------------------------------
+[debug] [2022-05-26T16:28:42.644Z] Command:       C:\node32\node.exe C:\node32\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-05-26T16:28:42.645Z] CLI Version:   10.8.0
+[debug] [2022-05-26T16:28:42.646Z] Platform:      win32
+[debug] [2022-05-26T16:28:42.646Z] Node Version:  v16.14.0
+[debug] [2022-05-26T16:28:42.818Z] Time:          Thu May 26 2022 22:28:42 GMT+0600 (East Kazakhstan Time)
+[debug] [2022-05-26T16:28:42.819Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-26T16:28:43.073Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-26T16:28:43.073Z] > authorizing via signed-in user (videomaster1293355@gmail.com)
+[debug] [2022-05-26T16:28:43.074Z] [iam] checking project autima-pro for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-05-26T16:28:43.078Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/autima-pro:testIamPermissions [none]
+[debug] [2022-05-26T16:28:43.079Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/autima-pro:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-05-26T16:28:45.969Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/autima-pro:testIamPermissions 200
+[debug] [2022-05-26T16:28:45.969Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/autima-pro:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-05-26T16:28:45.972Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/autima-pro [none]
+[debug] [2022-05-26T16:28:47.231Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/autima-pro 200
+[debug] [2022-05-26T16:28:47.232Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/autima-pro {"projectId":"autima-pro","projectNumber":"765784448004","displayName":"autima Pro","name":"projects/autima-pro","resources":{"hostingSite":"autima-pro"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'autima-pro'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-05-26T16:28:47.263Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/autima-pro [none]
+[debug] [2022-05-26T16:28:48.498Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/autima-pro 200
+[debug] [2022-05-26T16:28:48.499Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/autima-pro {"projectId":"autima-pro","projectNumber":"765784448004","displayName":"autima Pro","name":"projects/autima-pro","resources":{"hostingSite":"autima-pro"},"state":"ACTIVE"}
+[debug] [2022-05-26T16:28:48.503Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/versions [none]
+[debug] [2022-05-26T16:28:48.503Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-05-26T16:28:51.495Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/versions 200
+[debug] [2022-05-26T16:28:51.496Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/versions {"name":"projects/765784448004/sites/autima-pro/versions/926de36283f08496","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[autima-pro]: beginning deploy... 
+[info] i  hosting[autima-pro]: found 17 files in build 
+[debug] [2022-05-26T16:28:51.603Z] [hosting] uploading with 200 concurrency
+[debug] [2022-05-26T16:28:52.467Z] [hosting] hash cache [YnVpbGQ] stored for 17 files
+[debug] [2022-05-26T16:28:52.468Z] [hosting][hash queue][FINAL] {"max":822,"min":6,"avg":145,"active":0,"complete":17,"success":17,"errored":0,"retried":0,"total":17,"elapsed":838}
+[debug] [2022-05-26T16:28:52.469Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/versions/926de36283f08496:populateFiles [none]
+[debug] [2022-05-26T16:28:52.469Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/versions/926de36283f08496:populateFiles {"files":{"/favicon.png":"c508f5e2376c94b942ac198822ed666c06406db2c9bec160f5914a7a3d7aabfc","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/manifest.json":"81d6b7bd66dbf85200a6eb5e82b523835dfa7e2c127176913ed9668851143e7a","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/asset-manifest.json":"2bab01badc46d0e16ea7ed7960c7dd968baa773ef0d8f101c2fe90e72363618b","/index.html":"7860240445ca16e52bd6d14f33cac7f2f41ecda41f1d21768ab978df1b7bc1be","/static/css/main.d5a2cbf6.css.map":"61da33d033abed837a5e9c45068cccee6e14e0a058547e63d6b8a81c83a8123f","/static/js/787.ac3504b9.chunk.js":"0be02671dc15b0444374183697e4208ddb401f667856f220a9ee9074fc395f5b","/static/js/787.ac3504b9.chunk.js.map":"a655c2df422176f95fc3f707c7e73f32dc3cad4f81acc24a953fb3cbd00329a0","/static/js/main.0dfb7e6c.js.LICENSE.txt":"78553a9b8615649f087806b08b520f6bc1b53811c5b0a33d94c67474db9bf639","/static/media/logo.62651e9af3eb329e8a23.webp":"184d542f6ea9c89fde696869d4506ed4ca7df2100d06c77604af2b2030030b03","/static/css/main.d5a2cbf6.css":"fb706fc0febf6388776950ca52235ff1142090d951d817bb502e13aa30209171","/static/media/not-found.83c9f0e913c6020b7467.png":"f841669490597f710bf242ec112dcf3a64a0eb2da29ecf548d04473cef9f1c40","/static/media/hero-img.bc777c16d8b523ab4bf1.png":"111f1618c1083015eaf277000f7e5ec3b8f9003fc5bfe09067f5f362e5a9c84b","/static/js/main.0dfb7e6c.js":"7adbf9c9c3eb9f6d9f07107a7181a5ef501d09b7c894fcce4aa6f486db1b24ec","/static/js/main.0dfb7e6c.js.map":"7b8d0f22da7e0afd6a9942b056ab16f39ff0b2000faff990f480b3641664f763"}}
+[debug] [2022-05-26T16:28:56.894Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/versions/926de36283f08496:populateFiles 200
+[debug] [2022-05-26T16:28:56.894Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/versions/926de36283f08496:populateFiles {"uploadRequiredHashes":["7860240445ca16e52bd6d14f33cac7f2f41ecda41f1d21768ab978df1b7bc1be","7adbf9c9c3eb9f6d9f07107a7181a5ef501d09b7c894fcce4aa6f486db1b24ec","7b8d0f22da7e0afd6a9942b056ab16f39ff0b2000faff990f480b3641664f763","2bab01badc46d0e16ea7ed7960c7dd968baa773ef0d8f101c2fe90e72363618b"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files"}
+[debug] [2022-05-26T16:28:56.897Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/7860240445ca16e52bd6d14f33cac7f2f41ecda41f1d21768ab978df1b7bc1be [none]
+[debug] [2022-05-26T16:28:56.898Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/7860240445ca16e52bd6d14f33cac7f2f41ecda41f1d21768ab978df1b7bc1be [stream]
+[debug] [2022-05-26T16:28:56.900Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/7adbf9c9c3eb9f6d9f07107a7181a5ef501d09b7c894fcce4aa6f486db1b24ec [none]
+[debug] [2022-05-26T16:28:56.900Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/7adbf9c9c3eb9f6d9f07107a7181a5ef501d09b7c894fcce4aa6f486db1b24ec [stream]
+[debug] [2022-05-26T16:28:56.903Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/7b8d0f22da7e0afd6a9942b056ab16f39ff0b2000faff990f480b3641664f763 [none]
+[debug] [2022-05-26T16:28:56.903Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/7b8d0f22da7e0afd6a9942b056ab16f39ff0b2000faff990f480b3641664f763 [stream]
+[debug] [2022-05-26T16:28:56.905Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/2bab01badc46d0e16ea7ed7960c7dd968baa773ef0d8f101c2fe90e72363618b [none]
+[debug] [2022-05-26T16:28:56.905Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/2bab01badc46d0e16ea7ed7960c7dd968baa773ef0d8f101c2fe90e72363618b [stream]
+[debug] [2022-05-26T16:28:56.907Z] [hosting][populate queue][FINAL] {"max":4435,"min":4435,"avg":4435,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":4445}
+[debug] [2022-05-26T16:28:56.907Z] [hosting] uploads queued: 4
+[debug] [2022-05-26T16:29:04.714Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/7860240445ca16e52bd6d14f33cac7f2f41ecda41f1d21768ab978df1b7bc1be 200
+[debug] [2022-05-26T16:29:04.715Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/7860240445ca16e52bd6d14f33cac7f2f41ecda41f1d21768ab978df1b7bc1be [stream]
+[debug] [2022-05-26T16:29:05.906Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/2bab01badc46d0e16ea7ed7960c7dd968baa773ef0d8f101c2fe90e72363618b 200
+[debug] [2022-05-26T16:29:05.907Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/2bab01badc46d0e16ea7ed7960c7dd968baa773ef0d8f101c2fe90e72363618b [stream]
+[debug] [2022-05-26T16:29:25.406Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/7adbf9c9c3eb9f6d9f07107a7181a5ef501d09b7c894fcce4aa6f486db1b24ec 200
+[debug] [2022-05-26T16:29:25.406Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/7adbf9c9c3eb9f6d9f07107a7181a5ef501d09b7c894fcce4aa6f486db1b24ec [stream]
+[debug] [2022-05-26T16:29:32.855Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/7b8d0f22da7e0afd6a9942b056ab16f39ff0b2000faff990f480b3641664f763 200
+[debug] [2022-05-26T16:29:32.855Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/autima-pro/versions/926de36283f08496/files/7b8d0f22da7e0afd6a9942b056ab16f39ff0b2000faff990f480b3641664f763 [stream]
+[debug] [2022-05-26T16:29:32.856Z] [hosting][upload queue][FINAL] {"max":35960,"min":7820,"avg":20325.25,"active":0,"complete":4,"success":4,"errored":0,"retried":0,"total":4,"elapsed":35961}
+[info] +  hosting[autima-pro]: file upload complete 
+[debug] [2022-05-26T16:29:32.860Z] [hosting] deploy completed after 41360ms
+[debug] [2022-05-26T16:29:32.871Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "autima-pro"
+    },
+    "site": "autima-pro",
+    "version": "projects/765784448004/sites/autima-pro/versions/926de36283f08496"
+  }
+]
+[info] i  hosting[autima-pro]: finalizing version... 
+[debug] [2022-05-26T16:29:32.876Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/versions/926de36283f08496 updateMask=status%2Cconfig
+[debug] [2022-05-26T16:29:32.877Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/versions/926de36283f08496 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2022-05-26T16:29:35.638Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/versions/926de36283f08496 200
+[debug] [2022-05-26T16:29:35.638Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/versions/926de36283f08496 {"name":"projects/765784448004/sites/autima-pro/versions/926de36283f08496","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-05-26T16:28:52.558829Z","createUser":{"email":"Videomaster1293355@gmail.com"},"finalizeTime":"2022-05-26T16:29:37.357795Z","finalizeUser":{"email":"Videomaster1293355@gmail.com"}}
+[debug] [2022-05-26T16:29:35.639Z] [hosting] finalized version for autima-pro:[object Object]
+[info] +  hosting[autima-pro]: version finalized 
+[info] i  hosting[autima-pro]: releasing new version... 
+[debug] [2022-05-26T16:29:35.645Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/releases versionName=projects%2F765784448004%2Fsites%2Fautima-pro%2Fversions%2F926de36283f08496
+[debug] [2022-05-26T16:29:35.645Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/releases {"message":null}
+[debug] [2022-05-26T16:29:38.325Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/releases 200
+[debug] [2022-05-26T16:29:38.326Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/765784448004/sites/autima-pro/releases {"name":"projects/765784448004/sites/autima-pro/releases/1653582579290824","version":{"name":"projects/765784448004/sites/autima-pro/versions/926de36283f08496","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-05-26T16:28:52.558829Z","createUser":{"email":"Videomaster1293355@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GgrP-ghiEpY_VrjlYzHfRPQ6o_4IbBWPWaPL0cBsQ"},"finalizeTime":"2022-05-26T16:29:37.357795Z","finalizeUser":{"email":"Videomaster1293355@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GgrP-ghiEpY_VrjlYzHfRPQ6o_4IbBWPWaPL0cBsQ"}},"type":"DEPLOY","releaseTime":"2022-05-26T16:29:39.290824534Z","releaseUser":{"email":"Videomaster1293355@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GgrP-ghiEpY_VrjlYzHfRPQ6o_4IbBWPWaPL0cBsQ"}}
+[debug] [2022-05-26T16:29:38.327Z] [hosting] release: {"name":"projects/765784448004/sites/autima-pro/releases/1653582579290824","version":{"name":"projects/765784448004/sites/autima-pro/versions/926de36283f08496","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-05-26T16:28:52.558829Z","createUser":{"email":"Videomaster1293355@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GgrP-ghiEpY_VrjlYzHfRPQ6o_4IbBWPWaPL0cBsQ"},"finalizeTime":"2022-05-26T16:29:37.357795Z","finalizeUser":{"email":"Videomaster1293355@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GgrP-ghiEpY_VrjlYzHfRPQ6o_4IbBWPWaPL0cBsQ"}},"type":"DEPLOY","releaseTime":"2022-05-26T16:29:39.290824534Z","releaseUser":{"email":"Videomaster1293355@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GgrP-ghiEpY_VrjlYzHfRPQ6o_4IbBWPWaPL0cBsQ"}}
+[info] +  hosting[autima-pro]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/autima-pro/overview
+[info] Hosting URL: https://autima-pro.web.app
