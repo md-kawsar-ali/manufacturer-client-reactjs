@@ -15,6 +15,7 @@ import RequireAuth from './components/Pages/Authentication/RequireAuth';
 import AllProduct from './components/Pages/AllProduct/AllProduct';
 import Users from './components/Pages/Dashboard/Users';
 import RequireAdmin from './components/Pages/Authentication/RequireAdmin';
+import Product from './components/Pages/Product/Product';
 
 function App() {
   return (
@@ -29,7 +30,11 @@ function App() {
             <AllProduct />
           </RequireAuth>
         } />
-
+        <Route path='/product/:id' element={
+          <RequireAuth>
+            <Product />
+          </RequireAuth>
+        } />
         <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<MyOrders />} />
           <Route path='add-review' element={<AddReview />} />
