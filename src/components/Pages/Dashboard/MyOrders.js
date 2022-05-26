@@ -9,7 +9,7 @@ import withReactContent from 'sweetalert2-react-content';
 const MyOrders = () => {
     const [user, loading] = useAuthState(auth);
 
-    const { data: orders, isLoading, refetch } = useQuery('myOrders', () => fetch(`http://localhost:5000/order/${user?.email}`, {
+    const { data: orders, isLoading, refetch } = useQuery('myOrders', () => fetch(`https://autima-pro-manufacturer.herokuapp.com/order/${user?.email}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
