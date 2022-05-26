@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import Loader from '../../shared/Loader';
 import { toast } from 'react-hot-toast';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
 
