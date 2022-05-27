@@ -7,7 +7,7 @@ import Title from './Title';
 const NewCollection = () => {
     const [loading, setLoading] = useState(true);
     const [collection, setCollection] = useState([]);
-    const [admin, adminLoading] = useAdmin();
+    const [admin] = useAdmin();
 
     useEffect(() => {
         fetch('https://autima-pro-manufacturer.herokuapp.com/product?size=3')
@@ -18,7 +18,7 @@ const NewCollection = () => {
             })
     }, []);
 
-    if (loading || adminLoading) {
+    if (loading) {
         return <Loader />;
     }
 
