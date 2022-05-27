@@ -39,7 +39,7 @@ const Login = () => {
                     localStorage.setItem('accessToken', data.accessToken);
                     navigate(from, { replace: true });
                 })
-                .catch(err => console.error(err));
+                .catch(err => { console.error(err) });
 
         } else if (firebaseError || gError) {
             let msg;

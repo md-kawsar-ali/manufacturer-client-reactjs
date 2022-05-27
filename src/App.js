@@ -17,6 +17,8 @@ import Users from './components/Pages/Dashboard/Users';
 import RequireAdmin from './components/Pages/Authentication/RequireAdmin';
 import Product from './components/Pages/Product/Product';
 import Checkout from './components/Pages/Dashboard/Checkout';
+import Overview from './components/Pages/Dashboard/Overview';
+import RequireCustomer from './components/Pages/Authentication/RequireCustomer';
 
 function App() {
   return (
@@ -31,16 +33,30 @@ function App() {
             <AllProduct />
           </RequireAuth>
         } />
+
         <Route path='/product/:id' element={
           <RequireAuth>
-            <Product />
+            <RequireCustomer>
+              <Product />
+            </RequireCustomer>
           </RequireAuth>
         } />
+
         <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
-          <Route index element={<MyOrders />} />
-          <Route path='add-review' element={<AddReview />} />
+          <Route index element={<Overview />} />
+          <Route path='my-orders' element={
+            <RequireCustomer>
+              <MyOrders />
+            </RequireCustomer>} />
+          <Route path='add-review' element={
+            <RequireCustomer>
+              <AddReview />
+            </RequireCustomer>} />
           <Route path='my-profile' element={<MyProfile />} />
-          <Route path='checkout/:id' element={<Checkout />} />
+          <Route path='checkout/:id' element={
+            <RequireCustomer>
+              <Checkout />
+            </RequireCustomer>} />
           <Route path='users' element={<RequireAdmin><Users /></RequireAdmin>} />
         </Route>
         <Route path="*" element={<NotFound />} />

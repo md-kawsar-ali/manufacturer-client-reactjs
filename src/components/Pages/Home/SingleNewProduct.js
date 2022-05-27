@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SingleNewProduct = ({ item }) => {
+const SingleNewProduct = ({ item, admin }) => {
     const { _id, img, name, price, quantity, minOrder } = item;
     return (
         <div className="card card-compact w-full bg-slate-100 shadow-slate-300 shadow-md">
@@ -26,9 +26,9 @@ const SingleNewProduct = ({ item }) => {
                         </li>
                     </ul>
 
-                    <div className="card-actions justify-start">
+                    {!admin && <div className="card-actions justify-start">
                         <Link to={`/product/${_id}`} className="btn btn-sm btn-primary">Purchase</Link>
-                    </div>
+                    </div>}
                 </div>
             </div>
         </div>

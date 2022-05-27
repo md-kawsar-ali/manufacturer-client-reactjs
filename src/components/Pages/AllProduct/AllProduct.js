@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import useAdmin from '../../../hooks/useAdmin';
 import SubHeader from '../../shared/SubHeader';
 import Loader from './../../shared/Loader';
 import SingleNewProduct from './../Home/SingleNewProduct';
@@ -6,6 +7,7 @@ import SingleNewProduct from './../Home/SingleNewProduct';
 const AllProduct = () => {
     const [loading, setLoading] = useState(true);
     const [collection, setCollection] = useState([]);
+    const [admin, adminLoading] = useAdmin();
 
     useEffect(() => {
         fetch('https://autima-pro-manufacturer.herokuapp.com/product')
@@ -16,7 +18,7 @@ const AllProduct = () => {
             })
     }, []);
 
-    if (loading) {
+    if (loading || adminLoading) {
         return <Loader />;
     }
 
@@ -28,7 +30,7 @@ const AllProduct = () => {
                 <div className="container mx-auto px-8 lg:px-14">
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12'>
                         {
-                            collection?.map(item => <SingleNewProduct key={item._id} item={item} />)
+                            collection?.map(item => <SingleNewProduct key={item._id} item={item} admin={admin} />)
                         }
                     </div>
                 </div>

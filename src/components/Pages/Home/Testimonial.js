@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper';
@@ -7,33 +7,14 @@ import Title from './Title';
 import SingleReview from './SingleReview';
 
 const Testimonial = () => {
+    const [reviews, setReviews] = useState([]);
 
-    const reviews = [
-        {
-            '_id': 1,
-            'name': 'Jhon Doe',
-            'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos eligendi deserunt labore maiores voluptatum quae obcaecati sapiente necessitatibus autem',
-            'rating': 4
-        },
-        {
-            '_id': 2,
-            'name': 'Mr Alex',
-            'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos eligendi deserunt labore maiores voluptatum quae obcaecati sapiente necessitatibus autem',
-            'rating': 5
-        },
-        {
-            '_id': 3,
-            'name': 'Jordan',
-            'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos eligendi deserunt labore maiores voluptatum quae obcaecati sapiente necessitatibus autem',
-            'rating': 4
-        },
-        {
-            '_id': 4,
-            'name': 'Ema watson',
-            'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos eligendi deserunt labore maiores voluptatum quae obcaecati sapiente necessitatibus autem',
-            'rating': 3
-        },
-    ];
+    useEffect(() => {
+        fetch('https://autima-pro-manufacturer.herokuapp.com/review')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+            .catch(err => console.error(err))
+    }, []);
 
     return (
         <section className='py-24'>

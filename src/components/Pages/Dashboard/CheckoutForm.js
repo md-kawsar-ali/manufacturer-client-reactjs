@@ -93,7 +93,7 @@ const CheckoutForm = ({ order }) => {
                         toast.success('Your Payment is Completed!', {
                             duration: 4000
                         })
-                        navigate('/dashboard');
+                        navigate('/dashboard/my-orders');
                     }
                 })
         }

@@ -3,6 +3,10 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import Loader from './../../shared/Loader';
 import CheckoutForm from './CheckoutForm';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
+const stripePromise = loadStripe('pk_test_51L3l4bJd7KN1TpXhMtASMUShbh7mVzCAXqoxrr1jIpSHwp574QvJX0zCAQPFS5UQUtwyC1qsHYEBeZFI3nbV5p7Q004TSSOLMU');
 
 const Checkout = () => {
     const { id } = useParams();
@@ -45,7 +49,9 @@ const Checkout = () => {
                     </div>
                 </div>
 
-                <CheckoutForm order={order} />
+                <Elements stripe={stripePromise}>
+                    <CheckoutForm order={order} />
+                </Elements>
             </div>
         </div>
     );

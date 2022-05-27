@@ -49,8 +49,8 @@ const OrderForm = ({ product, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.acknowledged) {
-                    navigate('/dashboard');
+                if (data.insertedId) {
+                    navigate('/dashboard/my-orders');
                     toast.success('Order Placed! Please, Make Payment!');
                     refetch();
                 } else {
