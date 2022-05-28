@@ -63,7 +63,7 @@ const AddProduct = () => {
 
             <div className="card w-full md:w-8/12 shadow-md bg-base-100">
                 <div className="card-body">
-                    <form className='grid grid-cols-2 gap-x-3' onSubmit={handleSubmit(onSubmit)}>
+                    <form className='grid grid-cols-1 lg:grid-cols-2 gap-x-3' onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Product Name</span>
