@@ -22,6 +22,7 @@ import RequireCustomer from './components/Pages/Authentication/RequireCustomer';
 import AddProduct from './components/Pages/Dashboard/AddProduct';
 import ManageOrders from './components/Pages/Dashboard/ManageOrders';
 import ManageProducts from './components/Pages/Dashboard/ManageProducts';
+import Blog from './components/Pages/Blog/Blog';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/products" element={
