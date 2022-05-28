@@ -20,6 +20,8 @@ import Checkout from './components/Pages/Dashboard/Checkout';
 import Overview from './components/Pages/Dashboard/Overview';
 import RequireCustomer from './components/Pages/Authentication/RequireCustomer';
 import AddProduct from './components/Pages/Dashboard/AddProduct';
+import ManageOrders from './components/Pages/Dashboard/ManageOrders';
+import ManageProducts from './components/Pages/Dashboard/ManageProducts';
 
 function App() {
   return (
@@ -49,15 +51,21 @@ function App() {
             <RequireCustomer>
               <MyOrders />
             </RequireCustomer>} />
+
           <Route path='add-review' element={
             <RequireCustomer>
               <AddReview />
             </RequireCustomer>} />
+
           <Route path='my-profile' element={<MyProfile />} />
+
           <Route path='checkout/:id' element={
             <RequireCustomer>
               <Checkout />
             </RequireCustomer>} />
+
+          <Route path='manage-products' element={<RequireAdmin><ManageProducts /></RequireAdmin>} />
+          <Route path='manage-orders' element={<RequireAdmin><ManageOrders /></RequireAdmin>} />
           <Route path='add-product' element={<RequireAdmin><AddProduct /></RequireAdmin>} />
           <Route path='users' element={<RequireAdmin><Users /></RequireAdmin>} />
         </Route>
