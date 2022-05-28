@@ -16,6 +16,7 @@ const DrawerSide = () => {
                 {
                     admin ?
                         <>
+                            <li><Link to='/dashboard/add-product'>Add Product</Link></li>
                             <li><Link to='/dashboard/users'>All Users</Link></li>
                         </>
                         :

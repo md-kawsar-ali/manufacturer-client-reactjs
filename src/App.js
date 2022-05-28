@@ -19,6 +19,7 @@ import Product from './components/Pages/Product/Product';
 import Checkout from './components/Pages/Dashboard/Checkout';
 import Overview from './components/Pages/Dashboard/Overview';
 import RequireCustomer from './components/Pages/Authentication/RequireCustomer';
+import AddProduct from './components/Pages/Dashboard/AddProduct';
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
             <RequireCustomer>
               <Checkout />
             </RequireCustomer>} />
+          <Route path='add-product' element={<RequireAdmin><AddProduct /></RequireAdmin>} />
           <Route path='users' element={<RequireAdmin><Users /></RequireAdmin>} />
         </Route>
         <Route path="*" element={<NotFound />} />
